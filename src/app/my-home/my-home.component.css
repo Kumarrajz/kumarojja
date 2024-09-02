@@ -1,8 +1,11 @@
-/* .container {
+.card {
     display: flex;
-    align-items: center;
+    align-items: left;
     justify-content: center;
-    height: 100hv;
-    padding: auto;
+    /* margin-left: 300px; */
+   visibility: hidden;
+   display: block;
+   background: border-box;
+   color: ghostwhite
 
-} */
+}

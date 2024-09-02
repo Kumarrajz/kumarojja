@@ -1,22 +1,95 @@
-<style>
-  .background{
-    width: 100%;
-    height: 100vh;
-    background-image: url("../../assets/bg.jpeg"); 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat; 
-    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  }
-</style>
-<div class="background">
+  <style>
+    .background {
+      width: 100%;
+      height: 100vh;
+      background-image: url("../../assets/bg.jpeg"); 
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat; 
+    }
 
-    <div class="container mt-4">
-      <div class="card-container ">
+    .circle {
+      height: 50px;
+      padding: 7px 10px;
+      border-radius: 25px;
+      font-size: 14px;
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      overflow: visible;
+      visibility: inherit;
+    }
 
-      <button class="button btn btn-success">button</button>
+    .circle:hover {
+      text-decoration: none;
+      color: gray; 
+      border: 1px solid #ddd;
+    }
+
+    .menubar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .toolsInBar {
+      display: flex;
+      align-items: center;
+    }
+
+    .toolsInBar .circle {
+      margin-left: 10px; 
+    }
+
+    .ml-auto {
+      margin-left: auto; 
+    }
+
+    .Info {
+      overflow: visible;
+      visibility: inherit;
+      width: 600px;
+    }
+
+    .toolbar img {
+      margin: 0 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="background">
+    <div class="container">
+      <div class="menubar">
+        <div class="toolbar">
+          <img width="40" alt="My Logo" src="../assets/logo.jpg" />
+        </div>
+        <div class="toolsInBar">
+          <a routerLink="/bio" class="circle">BIO</a>
+          <a href="#" class="circle ml-2">PROFESSIONAL</a>
+          <a href="#" class="circle ml-2">EXPERIENCE</a>
+          <a href="#" class="circle ml-2">CONTACT</a>
+        </div>
+      </div>
     </div>
-  
+    <div class="container mt-4">
+      <div class="me">
+      </div>
+      <div class="card Info">
+        <h1 style="font-size: 60px; font-weight: 20px;">I'M</h1>
+        <h2 style="font-size: 80px; font-weight: 20px;">{{MYNAME | uppercase}}</h2>
+        <h3>{{myRole | uppercase}}</h3>
+      </div>
+    </div>
   </div>
-</div>
+
+</body>
+</html>
