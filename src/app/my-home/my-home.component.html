@@ -8,7 +8,7 @@
     .background {
       width: 100%;
       height: 100vh;
-      background-image: url("../../assets/bg.jpeg"); 
+      background-image: url("assets/bg.jpeg"); 
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat; 
@@ -70,13 +70,13 @@
     <div class="container">
       <div class="menubar">
         <div class="toolbar">
-          <img width="40" alt="My Logo" src="../assets/logo.jpg" />
+          <img width="40" alt="My Logo" src="assets/logo.jpg" />
         </div>
         <div class="toolsInBar">
           <a routerLink="/bio" class="circle">BIO</a>
           <a href="#" class="circle ml-2">PROFESSIONAL</a>
           <a href="#" class="circle ml-2">EXPERIENCE</a>
-          <a href="#" class="circle ml-2">CONTACT</a>
+          <a routerLink="/contact" class="circle ml-2">CONTACT</a>
         </div>
       </div>
     </div>
@@ -92,7 +92,7 @@
     <div  class="container mt-4">
       <div class="card-container">
         <h1>Click here to download my Resume.</h1>
-        <button>Download Resume</button>
+        <button class="btn btn-info" (click)="downloadPDF()">Download Resume</button>
       </div>
 
     </div>

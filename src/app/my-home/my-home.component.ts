@@ -9,4 +9,11 @@ export class MyHomeComponent {
   MYNAME = "KUMAR OJJA";
   myRole = "MEAN STACK & WEB DEVELOPER";
 
+  downloadPDF(){
+    const link = document.createElement('a');
+    link.href = 'assets/kumarOjja.pdf'; 
+    link.download = 'kumarOjja.pdf';
+    link.click();
+  }
+
 }

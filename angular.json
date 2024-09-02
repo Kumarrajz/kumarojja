@@ -13,7 +13,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            // "outputPath": "dist/my-portfolio",
             "outputPath": "dist/kumarojja",
             "baseHref": "/kumarojja/",
             "index": "src/index.html",
