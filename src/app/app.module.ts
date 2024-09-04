@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { MyHomeComponent } from './my-home/my-home.component';
 import { InfoComponent } from './my-home/BIO/info/info.component';
 import { ContactComponent } from './contact/contact.component';
+// import { MatFormFieldModule } from '@angular/material/form-field';
+// import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { ContactComponent } from './contact/contact.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    // MatFormFieldModule,
+    // MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-info',
@@ -7,5 +8,16 @@ import { Component } from '@angular/core';
 })
 export class InfoComponent {
   Name="Kumar Ojja";
+  SubmitForm!: FormGroup;
+  constructor( private formBuilder: FormBuilder){
 
+  }
+ngOnInit(){
+  // this.SubmitForm = this.formBuilder.group({
+  //   Name: [''],
+ 
+  //   // Transactiondateedit: ['', Validators.required],
+
+  // });
+}
 }

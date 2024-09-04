@@ -9,6 +9,63 @@
   }
 </style>
 <div class="container mt-4 center background ">
+  <!-- <form [formGroup]="SubmitForm" novalidate>
+    <div class="row justify-content-md-center">
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="card-body  px-3 pt-2">
+          <mat-form-field class="form-group" style="width: 100%;font-size: 17px;">
+            <mat-label style="font-family: 'Montserrat';">Frequency</mat-label>
+            <mat-select [(ngModel)]="EditFrequency" formControlName="Frequencyedit"
+              (change)="frequencyChange($event)" required>
+              <mat-option>--Select One</mat-option>
+              <mat-option *ngFor="let EditFrequency of frequencyList"
+                [value]="EditFrequency">{{EditFrequency}}</mat-option>
+            </mat-select>
+          </mat-form-field> -->
+
+          <!-- <mat-form-field class="form-group" style="width: 100%; font-size: 17px;">
+            <mat-label style="font-family: 'Montserrat';">Name</mat-label>
+            <div class="d-flex justify-content-center ">
+              <div class="form-outline " style="width: 24rem">
+                <input matInput formControlName="Name" placeholder=" "
+                  style="font-family: 'Montserrat';" type="text" required>
+              </div>
+            </div>
+          </mat-form-field> -->
+
+          <!-- <mat-form-field class="form-group" style="width: 100%;font-size: 17px;">
+            <mat-label style="font-family: 'Montserrat';">Email</mat-label>
+            <mat-select style="font-family: 'Montserrat';" [(ngModel)]="Purpose"
+              formControlName="GrantPurposesedit" (change)="purposeChange($event)" required>
+              <mat-option>--Select One</mat-option>
+              <mat-option *ngFor="let Purpose of grantPurposeList" [value]="Purpose">{{Purpose}}
+              </mat-option>
+            </mat-select>
+             <input matInput #element1 
+                  [(ngModel)]="purpose" 
+                  [ngModelOptions]="{standalone: true}" placeholder=" " style="font-family: 'Montserrat';" type="text"
+                  required> -->
+          <!-- </mat-form-field> --> 
+          <!-- <mat-form-field [hidden]="purposeHide" class="form-group" style="width: 100%;font-size: 17px;">
+            <mat-label style="font-family: 'Montserrat';">Additional Purpose Details</mat-label>
+            <input matInput #element1 [(ngModel)]="Additionalpurpose" [ngModelOptions]="{standalone: true}"
+              placeholder=" " style="font-family: 'Montserrat';" type="text" required>
+          </mat-form-field> -->
+   
+          <!-- <mat-form-field ppearance="fill" class="form-group" style="width: 100%;font-size: 17px;">
+            <mat-label style="font-family: 'Montserrat'; font-size: 16px;">Transaction Date</mat-label>
+            <input (ngModelChange)="EditDateChangeValue1($event)" [(ngModel)]="transactiondate"
+              [matDatepicker]="expirationDate" matInput [min]="TodayMinDate" style="font-family: 'Montserrat';"
+              placeholder="" [ngModelOptions]="{standalone: true}" required readonly
+              (keyup)="onInputKeyup1($event)" (click)="openDatePicker1()">
+            <mat-datepicker-toggle matSuffix [for]="expirationDate"></mat-datepicker-toggle>
+            <mat-datepicker #expirationDate>
+            </mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </form> -->
 <div class="card-container bio">
     &nbsp; &nbsp; &nbsp; &nbsp;
     <h3>BIO-DATA</h3>

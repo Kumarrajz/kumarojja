@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class MyHomeComponent {
   MYNAME = "KUMAR OJJA";
   myRole = "MEAN STACK & WEB DEVELOPER";
+  professionaltab = false;
+  experinceTab = false;
 
   downloadPDF(){
     const link = document.createElement('a');

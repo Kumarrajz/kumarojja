@@ -44,6 +44,7 @@
     .toolsInBar {
       display: flex;
       align-items: center;
+      color: blue;
     }
 
     .toolsInBar .circle {
@@ -74,8 +75,8 @@
         </div>
         <div class="toolsInBar">
           <a routerLink="/bio" class="circle">BIO</a>
-          <a href="#" class="circle ml-2">PROFESSIONAL</a>
-          <a href="#" class="circle ml-2">EXPERIENCE</a>
+          <a (click)="professionaltab = true" class="circle ml-2">PROFESSIONAL</a>
+          <a (click)="experinceTab = true" class="circle ml-2">EXPERIENCE</a>
           <a routerLink="/contact" class="circle ml-2">CONTACT</a>
         </div>
       </div>
@@ -89,7 +90,7 @@
         <h3>{{myRole | uppercase}}</h3>
       </div>
     </div>
-    <div  class="container mt-4">
+    <div *ngIf="professionaltab" class="container mt-4">
       <div class="card-container">
         <h1>Click here to download my Resume.</h1>
         <button class="btn btn-info" (click)="downloadPDF()">Download Resume</button>
