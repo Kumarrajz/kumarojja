@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class ContactComponent {
 
+
+ngOnInit(){
+
+}
+submit(){
+  console.log("submt")
+}
 }

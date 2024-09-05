@@ -1,30 +1,119 @@
 
 <style>
+
 .contact{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-top: 10%;
+    justify-content: space-evenly;
+  background-color: #333B50;
+    width: 100%;
 }
-</style>
-<div class="container">
-    <div class="card-container col-12 contact">
-        <div class="card col-6" >
-            <h2>Contact</h2>
-        </div>
-        <div class="card col-6">
-            <h2>input data</h2>
-            <label for="name">Name</label>
-            <input id="name" type="text"/>
-            <label for="mobile">Mobile</label>
-            <input  id="mobile" type="number"/>
-            <label for="mail">Mobile</label>
-            <input id="mail" type="email"/>
-            <label for="comment">Comment</label>
-            <input  id="comment" type="text" aria-rowcount="4" aria-colcount="4"/>
+.card {
+  max-width: 500px;
+background-color: #333B50;
+  /* margin: auto; */
+  /* padding: 20px; */
+  border: none;
+}
+.ng-star-inserted{
+  background-color: #333B50;
+}
+.no-border-card .form-group  {
+  border: none;
+}
 
+mat-form-field {
+    width: 100%;
+  /* margin-bottom: 16px; */
+  border: 0;
+}
+.cont{
+    margin: 0;
+    border: 0;
+    /* padding: 0; */
+
+}
+.btn{
+    background-color: black;
+    margin-left: 21px;
+}
+.cont h5{
+    font-size: 16px;
+    color: aliceblue;
+    
+}
+/* mat-label{
+     margin-top: 40px; 
+} */
+
+</style>
+<div class="container mt-4">
+    <div class="card-container col-12 contact">
+        <div class="card col-4 cont" >
+            <h2 style="text-align: center; color: aliceblue">Contact</h2>
+            <h5>Highly skilled Full Stack Web Developer (MEAN) with over 2.6 plus years of experience at Vsoft
+                Technologies in Hyderabad. Proficient in Angular, HTML, CSS, JQUERY, Ajax, Node.js, JavaScript,
+                Express.js, Koa, Typescript, MongoDB, Oracle, and Python. Seeking to leverage expertise in
+                developing innovative web applications to contribute effectively to a dynamic team.
+                </h5>
+                <p><a style="color:aliceblue" href="https://kumarrajz.github.io/kumarojja/">https://kumarrajz.github.io/kumarojja/</a></p>
+                <p style="color:aliceblue">Mobile: 1223344899988</p>
+                <p style="font-weight: 800px; font-size: 16px bold;color:aliceblue">Please share your contact details</p>
         </div>
-        
+        <div class="mat">
+            <mat-card class="card no-border-card">
+              <!-- <h2 style="text-align: center;">Input Data</h2> -->
+              <div class="form-group">
+                <div class="col-sm-12">
+              <form class="mt-4" (submit)="submit()" >
+                <div class="row mt-5 ml-2">
+          
+                <div class="col-lg-6 col-md-6 col-sm-6  ">
+                    <mat-form-field class="form-group" style="width:100%">
+                        <mat-label style="font-family: Montserrat;color:rgb(10, 88, 145);">First Name</mat-label>
+                        <input matInput
+                             
+                               placeholder=" " required type="text">
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6  ">
+                    <mat-form-field class="form-group" style="width:100%">
+                        <mat-label style="font-family: Montserrat;color:rgb(10, 88, 145);">Last Name</mat-label>
+                        <input matInput
+                             
+                               placeholder=" " required type="text">
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12  ">
+                    <mat-form-field class="form-group" style="width:100%">
+                        <mat-label style="font-family: Montserrat;color:rgb(10, 88, 145);">Mobile</mat-label>
+                        <input matInput
+                             
+                               placeholder=" " required type="text">
+                    </mat-form-field>
+                </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12  ">
+                        <mat-form-field class="form-group" style="width:100%">
+                            <mat-label style="font-family: Montserrat;color:rgb(10, 88, 145);">Mail</mat-label>
+                            <input matInput
+                                 
+                                   placeholder=" " required type="text">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12   ">
+                        <mat-form-field class="form-group" style="width: 100%;">
+                            <mat-label style="font-family: 'Montserrat';color:rgb(10, 88, 145);">Comment</mat-label>
+                            <input matInput aria-rowspan="4"  aria-colspan="4"
+                                   placeholder=" " style="font-family: 'Montserrat';" required>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <button class="btn btn-submit hoverable-css btn btn-raised btn-outline-secondary mb-4 " style="width: 96%; background-color: black;" type="submit">Submit</button>
+              </form>
+                </div>
+              </div>
+            </mat-card>
+          </div>
 
     </div>
 </div>

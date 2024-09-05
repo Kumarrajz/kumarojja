@@ -13,7 +13,10 @@
       background-position: center;
       background-repeat: no-repeat; 
     }
-
+    .container{
+      padding: 20px;
+      margin: auto;
+    }
     .circle {
       height: 50px;
       padding: 7px 10px;
@@ -59,6 +62,7 @@
       overflow: visible;
       visibility: inherit;
       width: 600px;
+      padding: 20px;
     }
 
     .toolbar img {
@@ -85,15 +89,17 @@
       <div class="me">
       </div>
       <div class="card Info">
-        <h1 style="font-size: 60px; font-weight: 20px;">I'M</h1>
-        <h2 style="font-size: 80px; font-weight: 20px;">{{MYNAME | uppercase}}</h2>
-        <h3>{{myRole | uppercase}}</h3>
+        <h1 style="font-size: 60px; font-weight: 20px; margin-top: 50px;">I<span style="font-size: 60px;color: red; font-weight: 900px;">'</span>M</h1>
+        <h2 style="font-size: 80px; font-weight: 20px; margin-top: 50px;">{{MYNAME | uppercase}}<span style="font-size: 100px;color: red;">.</span></h2>
+        <h3 style="margin-top: 30px;">{{myRole | uppercase}}</h3>
       </div>
     </div>
-    <div *ngIf="professionaltab" class="container mt-4">
-      <div class="card-container">
-        <h1>Click here to download my Resume.</h1>
+    <div *ngIf="professionaltab" class="container mt-4" style="width: 600px;padding: 150px;   background-color: #333B50;">
+      <div class="card-container" >
+        <div class="">
+          <p style="color: white;">Click here to download my Resume.</p>
         <button class="btn btn-info" (click)="downloadPDF()">Download Resume</button>
+        </div>
       </div>
 
     </div>
