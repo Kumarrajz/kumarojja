@@ -1,9 +1,15 @@
 
   .bio{
     /* display: flex; */
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400px;
     align-items: center;
     justify-content: center;
-    margin-left: 400px;
+    padding: 50px;
+    margin: 0;
+    text-align: center;
+    /* margin-left: 400px; */
 
   }
   .h6{

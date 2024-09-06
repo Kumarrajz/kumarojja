@@ -3,9 +3,47 @@
     align-items: left;
     justify-content: center;
     /* margin-left: 300px; */
-   visibility: hidden;
+   /* visibility: hidden; */
+   /* background-color: rgb(83, 75, 75); */
    display: block;
    background: border-box;
    color: ghostwhite
 
 }
+.skill-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: transparent; /* Transparent background */
+  }
+  
+  .skill {
+    display: flex; /* Flexbox for same-line alignment */
+    justify-content: space-between; /* Aligns text and bar horizontally */
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-size: 14px;
+    font-weight: 600;
+    color:ghostwhite;
+    margin-right: 20px; /* Space between label and progress bar */
+  }
+  
+  .progress-bar {
+    flex-grow: 1; /* Takes available width */
+    height: 10px; /* Custom height for bar */
+    background-color: #e0e0e0; /* Light background */
+    border: 1px solid #007bff; /* Blue border */
+    box-shadow: none; /* Remove shadow */
+  }
+  
+  .progress-fill {
+    height: 100%;
+    background-color: #007bff; /* Blue color for all bars */
+    width: 0; /* Default width, will be overridden by Angular */
+    transition: width 0.5s ease; /* Smooth animation */
+  }
+  
