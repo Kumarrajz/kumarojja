@@ -17,6 +17,7 @@ export class AppComponent {
   contact: boolean= false;
   expience = false;
   activeTab: string = 'home';
+  project=  false;
 
   constructor(){
   
@@ -69,6 +70,10 @@ professionaltab(){
 experinceTab(){
  this.expience = true;
  this.activeTab = 'experience'
+}
+projectTab(){
+  this.project = true;
+   this.activeTab = 'project'
 }
 contactTab(){
 this.contact = true;

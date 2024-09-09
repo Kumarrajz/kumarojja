@@ -1,0 +1,19 @@
+<div class="container text-center card">
+    <h1>Tic Toc Toe</h1>
+    <div *ngIf="winner; else showPlayer" class="alert alert-info">
+        {{ winner === 'Draw' ? 'It\'s a draw' : winner + ' Wins' }}
+      </div>
+      
+      <ng-template #showPlayer>
+        <div class="alert alert-success">Player {{ currentPlayer }}'s turn</div>
+      </ng-template>
+   <div class="col-4">
+    <div class="row">
+        <div class="col-4" *ngFor="let cell of board; let i = index">
+            <button class="btn btn-outline-dark btn-lg" style="width: 100px; height: 100px;" (click)="handleMove(i)">{{cell}}</button>
+
+        </div>
+    </div>
+   </div>
+   <button class="btn btn-primary mt-3" (click)="resetGame()">Reset Game</button>
+</div>

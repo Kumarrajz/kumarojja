@@ -25,6 +25,8 @@
       class="circle ml-2">PROFESSIONAL</a>
     <a (click)="experinceTab()" id="three" [ngClass]="{'selected': activeTab === 'experience'}"
       class="circle ml-2">EXPERIENCE</a>
+      <a (click)="projectTab()" id="two" [ngClass]="{'selected': activeTab === 'project'}"
+      class="circle ml-2">PROJECT</a>
     <a (click)="contactTab()" id="four" [ngClass]="{'selected': activeTab === 'contact'}"
       class="circle ml-2">CONTACT</a>
       <a aria-label="Angular on GitHub" target="_blank" rel="noopener" href="https://github.com/Kumarrajz"
@@ -80,6 +82,9 @@
   </div>
   <div *ngIf="contact" id="contact" class="container">
     <app-contact></app-contact>
+  </div>
+  <div *ngIf="project" id="skill" class="container">
+    <app-project></app-project>
   </div>
 
 
