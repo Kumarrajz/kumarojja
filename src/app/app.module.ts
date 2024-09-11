@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { ProjectComponent } from './project/project.component';
+import { ExperienceComponent } from './experience/experience.component';
 
 
 
@@ -21,7 +22,8 @@ import { ProjectComponent } from './project/project.component';
     MyHomeComponent,
     InfoComponent,
     ContactComponent,
-    ProjectComponent
+    ProjectComponent,
+    ExperienceComponent
   ],
   imports: [
     BrowserModule,
