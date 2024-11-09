@@ -1,49 +1,91 @@
+/* Card Styling */
 .card {
-    display: flex;
-    align-items: left;
-    justify-content: center;
-    /* margin-left: 300px; */
-   /* visibility: hidden; */
-   /* background-color: rgb(83, 75, 75); */
-   display: block;
-   background: border-box;
-   color: ghostwhite
-
+  display: block;
+  background: border-box;
+  color: ghostwhite;
 }
+
+/* Skill container */
 .skill-container {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: transparent; /* Transparent background */
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: transparent; /* Transparent background */
+}
+
+/* Progress bar styling */
+.skill {
+  display: flex; /* Flexbox for same-line alignment */
+  justify-content: space-between; /* Aligns text and bar horizontally */
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+  color: ghostwhite;
+  margin-right: 20px; /* Space between label and progress bar */
+}
+
+.progress-bar {
+  flex-grow: 1; /* Takes available width */
+  height: 10px; /* Custom height for bar */
+  background-color: #e0e0e0; /* Light background */
+  border: 1px solid #007bff; /* Blue border */
+  box-shadow: none; /* Remove shadow */
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #007bff; /* Blue color for all bars */
+  width: 0; /* Default width, will be overridden by Angular */
+  transition: width 0.5s ease; /* Smooth animation */
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+  /* Adjust the skill container and progress bar for mobile */
+  .skill-container {
+      padding: 10px;
   }
-  
+
   .skill {
-    display: flex; /* Flexbox for same-line alignment */
-    justify-content: space-between; /* Aligns text and bar horizontally */
-    align-items: center;
-    margin-bottom: 20px;
+      flex-direction: column; /* Stack the label and progress bar vertically */
+      align-items: flex-start; /* Align text to the left */
+      margin-bottom: 15px;
   }
-  
+
   label {
-    font-size: 14px;
-    font-weight: 600;
-    color:ghostwhite;
-    margin-right: 20px; /* Space between label and progress bar */
+      margin-bottom: 8px; /* Add space between label and bar in mobile view */
+      font-size: 16px; /* Larger font size on small screens */
   }
-  
+
   .progress-bar {
-    flex-grow: 1; /* Takes available width */
-    height: 10px; /* Custom height for bar */
-    background-color: #e0e0e0; /* Light background */
-    border: 1px solid #007bff; /* Blue border */
-    box-shadow: none; /* Remove shadow */
+      width: 100%; /* Make progress bar full width on small screens */
   }
-  
+
   .progress-fill {
-    height: 100%;
-    background-color: #007bff; /* Blue color for all bars */
-    width: 0; /* Default width, will be overridden by Angular */
-    transition: width 0.5s ease; /* Smooth animation */
+      transition: width 0.7s ease; /* Make transition smoother on mobile */
   }
-  
+}
+
+@media (max-width: 576px) {
+  /* Further adjustments on very small screens */
+  .skill-container {
+      padding: 5px;
+  }
+
+  label {
+      font-size: 14px; /* Adjust font size for very small screens */
+  }
+
+  .progress-bar {
+      height: 8px; /* Reduce height for very small screens */
+  }
+
+  .progress-fill {
+      height: 100%;
+  }
+}

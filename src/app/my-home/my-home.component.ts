@@ -13,7 +13,17 @@ export class MyHomeComponent {
   skills = [
     { name: 'JavaScript', percentage: 80},
     { name: 'Angular', percentage: 70},
-    { name: 'Node.js', percentage: 90}
+    { name: 'HTML5', percentage: 90},
+    { name: 'CSS', percentage: 90},
+    { name: 'Bootstrap 3,4,5', percentage: 90},
+    { name: 'Node.js', percentage: 90},
+    { name: 'Express.js', percentage: 90},
+    { name: 'Koa.js', percentage: 90},
+    { name: 'Rx.js', percentage: 90},
+    { name: 'MongoDb', percentage: 80},
+    { name: 'mySql', percentage: 70},
+    { name: 'Oracle', percentage: 70},
+
   ];
   // experinceTab = false;
 

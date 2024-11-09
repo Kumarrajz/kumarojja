@@ -9,6 +9,7 @@ export class ProjectComponent {
   board: Array<string | null> = Array(9).fill(null);
   currentPlayer: string = 'X';
   winner: string | null = null;
+  enableTicTocToee:boolean = false;
 
   handleMove(idx: number) {
     if (!this.board[idx] && !this.winner) { 
@@ -19,6 +20,17 @@ export class ProjectComponent {
         this.winner = 'Draw';
       }
       this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X';
+    }
+  }
+  back(value:any){
+    if(value == true){
+      this.enableTicTocToee = false;
+    }
+  }
+  enableTicTocToe(val:any){
+    console.log("val",val)
+    if(val == true){
+      this.enableTicTocToee = true;
     }
   }
   checkWinner(): boolean {

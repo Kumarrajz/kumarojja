@@ -1,192 +1,71 @@
 :host {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 14px;
-    color: #333;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 14px;
+  color: #333;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 8px 0;
-  }
+.circle {
+  font-size: 14px;
+  color: white;
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
 
-  p {
-    margin: 0;
-  }
-  body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow-x: hidden;
-  }
-  .spacer {
-    flex: 1;
-  }
+.circle:hover,
+.circle.selected {
+  border-color: #0ece6b;
+}
 
-  .toolbar {
-    position: fixed;
-    top: 0;
-    left: 40px;
-    right: 40px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    background-color: #0f0f10;
-    color: white;
-    font-weight: 600;
-  }
+.bgImage {
+  width: 100%;
+  height: 100vh;
+}
 
-  .toolbar img {
-    margin: 0 16px;
-  }
+.background {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url("src/assets/bg.jpeg");
+  background-size: cover;
+  background-position: center;
+}
 
-  .toolbar #twitter-logo {
-    height: 40px;
-    margin: 0 8px;
-  }
+.container {
+  padding: 20px;
+  max-width: 960px;
+  margin: auto;
+}
+.toolbar {
+  position: fixed;
+  top: 0;
+  left: 40px;
+  right: 40px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #0f0f10;
+  color: white;
+  font-weight: 600;
+}
+h1,
+h2
+{
+font-size: 50px;
+margin: 30px;
+/* font-weight: 400px; */
+}
+h3
+{
+font-size: 20px;
+margin: 30px;
+/* font-weight: 400px; */
+}
+.navfloat{
+  float: right;
+  align-items: end;
+  justify-content: flex-end;
 
-  .toolbar #youtube-logo {
-    height: 40px;
-    margin: 0 16px;
-  }
-
-  .toolbar #twitter-logo:hover,
-  .toolbar #youtube-logo:hover {
-    opacity: 0.8;
-  }
-
-  .content {
-    display: flex;
-    margin: 82px auto 32px;
-    padding: 0 16px;
-    max-width: 960px;
-    flex-direction: column;
-    align-items: center;
-  }
-
-
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 16px;
-  }
-
-  
-
-
-  a,
-  a:visited,
-  a:hover {
-    color: #22cc4c;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: #33e822;
-  }
-
-
-  footer {
-    margin-left: 400px;
-    margin-top: 200px;
-    text-align: center;
-  
-    display: flex;
-    align-items: center;
-    line-height: 20px;
-  }
-
-  footer a {
-    display: flex;
-    align-items: center;
-    left: 100px;
-    bottom: 0;
-  }
-
-
-  /* Responsive Styles */
-  @media screen and (max-width: 767px) {
-    .card-container > *:not(.circle-link) ,
-    .terminal {
-      width: 100%;
-    }
-
-    .card:not(.highlight-card) {
-      height: 16px;
-      margin: 8px 0;
-    }
-
-    .card.highlight-card span {
-      margin-left: 72px;
-    }
-
-    svg#rocket-smoke {
-      right: 120px;
-      transform: rotate(-5deg);
-    }
-  }
-
-
-.container{
-    padding: 20px;
-   width: 100%; /* margin: auto; */
-  } 
-  .circle {
-    height: 50px;
-    padding: 7px 10px;
-    border-radius: 25px;
-    font-size: 14px;
-    text-align: center;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    overflow: visible;
-    visibility: inherit;
-    padding: 10px;
-    background-color:transparent;
-    color: white;
-    transition: border-color 0.3s ease;
-    border: 2px solid transparent;
-  }
-
-  .circle:hover {
-    text-decoration: none;
-    border-color: rgb(29, 223, 97); 
-    border: 2px solid #0ece6b;
-     /* background-color: darkgray;  */
-  }
-
-  .menubar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* padding: 20px; */
-  }
-
-  .toolsInBar .circle {
-    margin-left: 10px; 
-  }
-
-  .Info {
-    /* overflow: visible; */
-    /* visibility: inherit; */
-    display: contents;
-    width: 100%;
-    padding: 20px;
-    color: #888;
-  }
-  .selected {
-    border-color: rgb(41, 197, 27); 
-  }
-
-  
-
- 
+}

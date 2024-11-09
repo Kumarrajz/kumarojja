@@ -3,33 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <style>
- 
+    /* Add your CSS styles here */
   </style>
 </head>
 <body>
-    <div class="container mt-4" style="padding: 150px; text-align: center;  background-color: #333B50;">
-      <div class="card-container" >
-        <div class="aria-label">
-          <h2 style="color: ghostwhite;">MY KNOWLEDGE LEVEL IN SOFTWARE</h2>
-          <div class="progressBar">
-            <div class="skill-container">
-              <div *ngFor="let skill of skills" class="skill">
-                <label>{{ skill.name }} - {{ skill.percentage }}%</label>
-                <div class="progress-bar">
-                  <div class="progress-fill" [style.width.%]="skill.percentage"></div>
-                </div>
+  <div class="container mt-4" style="padding: 150px; text-align: center; background-color: #333B50;">
+    <div class="card-container">
+      <div class="aria-label">
+        <h2 style="color: ghostwhite;">KNOWLEDGE LEVEL IN SOFTWARE</h2>
+        <div class="progressBar">
+          <div class="skill-container">
+            <div *ngFor="let skill of skills" class="skill">
+              <label>{{ skill.name }} - {{ skill.percentage }}%</label>
+              <div class="progress-bar">
+                <div class="progress-fill" [style.width.%]="skill.percentage"></div>
               </div>
             </div>
-            
           </div>
-          <p style="color: ghostwhite;">Click here to download my Resume.</p>
-        <button class="btn btn-info" (click)="downloadPDF()">Download Resume</button>
         </div>
+        <p style="color: ghostwhite;">Click here to download my Resume.</p>
+        <button class="btn btn-info" (click)="downloadPDF()">Download Resume</button>
       </div>
-   
+    </div>
   </div>
-
 </body>
 </html>

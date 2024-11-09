@@ -8,24 +8,15 @@ import { Component } from '@angular/core';
 export class ExperienceComponent {
   experiences = [
     {
-      date: 'January 2020 - Present',
-      title: 'Senior Software Engineer',
-      description: 'Developing scalable solutions and managing teams in the tech industry.'
+      date: 'may 2022 - Present',
+      title: 'MEAN Stack Developer',
+      description: 'Working as MEAN stack developer, Design dynamic interface with Angular and integration and written restful api with Node js express js and Java script, Sequalize, NGINX, PM2 LINUX operating System and the database technologies MongoDB, Oracle, SQL.'
     },
+    
     {
-      date: 'June 2017 - December 2019',
-      title: 'Software Engineer',
-      description: 'Worked on various software projects, focusing on performance and scalability.'
-    },
-    {
-      date: 'July 2015 - May 2017',
-      title: 'Junior Developer',
-      description: 'Gained foundational skills in web and software development.'
-    },
-    {
-      date: 'August 2013 - June 2015',
-      title: 'Intern',
-      description: 'First experience in the tech industry, working with experienced developers.'
+      date: 'Dec 2022 - apr 2022',
+      title: 'Junior Engineer',
+      description: 'Written Pytest, hybrid framework with Python selenium..'
     }
   ];
 

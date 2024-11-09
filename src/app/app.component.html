@@ -1,85 +1,64 @@
-<style>
-  .bgImage {
-    width: 100%;
-    height: 100vh;
-
-  }
-
-  .background {
-    width: 100%;
-    height: 100vh;
-    background-image: url("assets/bg.jpeg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-</style>
-<app-experience></app-experience>
-<div *ngIf="false" class="background">
-  <!--Toolbar -->
-  <div class="toolbar" role="banner">
-    <img width="40" alt="My Logo" src="assets/logo.jpg" />
-    <span>Kumar Ojja</span>
-    <div class="spacer"></div>
-    <a (click)="MyHome()" id="one" [ngClass]="{'selected': activeTab === 'home'}" class="circle">HOME</a>
-    <a (click)="professionaltab()" id="two" [ngClass]="{'selected': activeTab === 'professional'}"
-      class="circle ml-2">PROFESSIONAL</a>
-    <a (click)="experinceTab()" id="three" [ngClass]="{'selected': activeTab === 'experience'}"
-      class="circle ml-2">EXPERIENCE</a>
-      <a (click)="projectTab()" id="two" [ngClass]="{'selected': activeTab === 'project'}"
-      class="circle ml-2">PROJECT</a>
-    <a (click)="contactTab()" id="four" [ngClass]="{'selected': activeTab === 'contact'}"
-      class="circle ml-2">CONTACT</a>
-      <a aria-label="Angular on GitHub" target="_blank" rel="noopener" href="https://github.com/Kumarrajz"
-      title="GitHub">
-      <svg id="github-logo" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
-         <path
-            d="M12 2C6.48 2 2 6.48 2 12c0 4.41 2.87 8.15 6.84 9.48.5.09.68-.22.68-.48v-1.69c-2.78.61-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1.01.07 1.54 1.04 1.54 1.04.9 1.54 2.36 1.1 2.94.84.09-.65.35-1.1.63-1.35-2.22-.25-4.56-1.11-4.56-4.96 0-1.1.39-2 1.03-2.7-.1-.26-.45-1.29.1-2.69 0 0 .84-.27 2.75 1.02A9.57 9.57 0 0112 6.84c.85.003 1.7.115 2.49.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.4.2 2.43.1 2.69.64.7 1.03 1.6 1.03 2.7 0 3.86-2.34 4.71-4.57 4.95.36.31.68.93.68 1.88v2.79c0 .27.18.58.69.48C19.14 20.15 22 16.41 22 12 22 6.48 17.52 2 12 2z" />
-      </svg>
-   </a> &nbsp; &nbsp;
-   <a aria-label="Angular on LinkedIn" target="_blank" rel="noopener" href="https://www.linkedin.com/in/kumar-ojja-238202194"
-   title="LinkedIn">
-   <svg id="linkedin-logo" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="white">
-      <path
-         d="M100.28 448H7.4V148.9h92.78zM53.79 108.1C24.09 108.1 0 83.44 0 53.47 0 23.51 24.09 0 53.79 0s53.79 23.51 53.79 53.47c0 29.96-24.08 54.63-53.79 54.63zm394.2 339.9h-92.68V302.4c0-34.7-12.43-58.41-43.56-58.41-23.76 0-37.91 16-44.15 31.44-2.28 5.55-2.85 13.28-2.85 21v151.59h-92.79s1.24-246.01 0-271.69h92.79v38.48c-2.48 3.79-6.17 9.19-9.28 13.41h.12v-51.9c12.33-18.94 34.42-45.95 83.69-45.95 61.12 0 106.96 39.86 106.96 125.44V448z" />
-   </svg>
-</a>
-   
-    <!-- <a aria-label="Angular on YouTube" target="_blank" rel="noopener" href="https://youtube.com/angular"
-      title="YouTube">
-      <svg id="youtube-logo" height="24" width="24" data-name="Logo" xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24" fill="#fff">
-        <path d="M0 0h24v24H0V0z" fill="none" />
-        <path
-          d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z" />
-      </svg>
-    </a> -->
-  </div>
-
-
-  <div *ngIf="home" class="container" id="home" style=" background-size: cover;">
-    <div class="container mt-4">
-      <!-- <div class="me"> -->
+<div class="background">
+  <!-- Responsive Toolbar -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">
+      <img width="40" alt="My Logo" src="assets/logo.jpg" /> Kumar Ojja
+    </a>
+    <button class="navbar-toggler" type="button" (click)="toggleNav()" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <!-- Mobile Menu (Collapsed by default) -->
+    <div class="collapse navbar-collapse navfloat" [ngClass]="{'show': navOpen}" id="navbarNav">
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item">
+        <a class="nav-link circle" (click)="MyHome()" [ngClass]="{'selected': activeTab === 'home'}">HOME</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link circle" (click)="professionaltab()" [ngClass]="{'selected': activeTab === 'professional'}">PROFESSIONAL</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link circle" (click)="experinceTab()" [ngClass]="{'selected': activeTab === 'experience'}">EXPERIENCE</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link circle" (click)="projectTab()" [ngClass]="{'selected': activeTab === 'project'}">PROJECT</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link circle" (click)="contactTab()" [ngClass]="{'selected': activeTab === 'contact'}">CONTACT</a>
+      </li>
+      <li class="nav-item">
+        <a aria-label="GitHub" target="_blank" rel="noopener" href="https://github.com/Kumarrajz" title="GitHub">
+          <svg id="github-logo" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
+            <path d="M12 2C6.48 2 2 6.48 2 12c0 4.41 2.87 8.15 6.84 9.48.5.09.68-.22.68-.48v-1.69c-2.78.61-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1.01.07 1.54 1.04 1.54 1.04.9 1.54 2.36 1.1 2.94.84.09-.65.35-1.1.63-1.35-2.22-.25-4.56-1.11-4.56-4.96 0-1.1.39-2 1.03-2.7-.1-.26-.45-1.29.1-2.69 0 0 .84-.27 2.75 1.02A9.57 9.57 0 0112 6.84c.85.003 1.7.115 2.49.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.4.2 2.43.1 2.69.64.7 1.03 1.6 1.03 2.7 0 3.86-2.34 4.71-4.57 4.95.36.31.68.93.68 1.88v2.79c0 .27.18.58.69.48C19.14 20.15 22 16.41 22 12 22 6.48 17.52 2 12 2z"/>
+          </svg>
+        </a> &nbsp; &nbsp;
+        <a aria-label="LinkedIn" target="_blank" rel="noopener" href="https://www.linkedin.com/in/kumar-ojja-238202194" title="LinkedIn">
+          <svg id="linkedin-logo" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="white">
+            <path d="M100.28 448H7.4V148.9h92.78zM53.79 108.1C24.09 108.1 0 83.44 0 53.47 0 23.51 24.09 0 53.79 0s53.79 23.51 53.79 53.47c0 29.96-24.08 54.63-53.79 54.63zm394.2 339.9h-92.68V302.4c0-34.7-12.43-58.41-43.56-58.41-23.76 0-37.91 16-44.15 31.44-2.28 5.55-2.85 13.28-2.85 21v151.59h-92.79s1.24-246.01 0-271.69h92.79v38.48c-2.48 3.79-6.17 9.19-9.28 13.41h.12v-51.9c12.33-18.94 34.42-45.95 83.69-45.95 61.12 0 106.96 39.86 106.96 125.44V448z"/>
+          </svg>
+        </a>
+      </li>
+    </ul>
     </div>
-    <div class="card Info" style="background-color: transparent;">
-      <h1 style="font-size: 60px; font-weight: 20px; margin-top: 50px;">I
-        <span style="font-size: 60px;color: red; font-weight: 900px;">'</span>M
-      </h1><br>
-      <h2 style="font-size: 80px; font-weight: 20px; margin-top: 50px;">{{MYNAME | uppercase}}
-        <span style="font-size: 100px;color: red;">.</span>
-      </h2>
-      <br>
-      <h3 style="margin-top: 30px;">{{myRole | uppercase}}</h3>
-      <!-- </div> -->
+    
+    
+  
+  </nav>
+
+
+  <div class="container" style="padding-top: 80px;">
+    <div *ngIf="home" id="home">
+      <h1>I<span style="color: red;">'</span>M</h1>
+      <h2>{{MYNAME | uppercase}}<span style="color: red;">.</span></h2>
+      <h3>{{myRole | uppercase}}</h3>
     </div>
-
-  </div>
-
-  <div *ngIf="professional" id="skill" class="container">
+    <div *ngIf="professional" id="skill" class="container">
     <app-my-home></app-my-home>
   </div>
   <div *ngIf="expience" id="bio" class="container">
-    <app-info></app-info>
+    <!-- <app-info></app-info> -->
+     <app-experience></app-experience>
   </div>
   <div *ngIf="contact" id="contact" class="container">
     <app-contact></app-contact>
@@ -87,27 +66,10 @@
   <div *ngIf="project" id="skill" class="container">
     <app-project></app-project>
   </div>
-
-
+  </div>
 
   <!-- Footer -->
-  <footer style="color: aliceblue;">
-    Love My Portfolios ?&nbsp;
-    <a href="https://github.com/Kumarrajz/kumarojja" target="_blank" rel="noopener"> Give our repo a star.
-      <div class="github-star-badge">
-        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-          <path d="M0 0h24v24H0z" fill="none" />
-          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-        </svg>
-        Star
-      </div>
-    </a>
-    <a href="https://github.com/angular/angular" target="_blank" rel="noopener">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2" />
-        <path d="M0 0h24v24H0z" fill="none" />
-      </svg>
-    </a>
+  <footer class="text-center mt-4 py-3 footer">
+    Love My Portfolios? <a href="https://github.com/Kumarrajz/kumarojja" target="_blank" class="text-light">Give our repo a star</a>
   </footer>
-
 </div>
