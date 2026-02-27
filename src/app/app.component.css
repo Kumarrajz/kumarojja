@@ -1,71 +1,296 @@
-:host {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 14px;
-  color: #333;
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.circle {
-  font-size: 14px;
-  color: white;
-  text-decoration: none;
-  border: 2px solid transparent;
-  transition: border-color 0.3s ease;
-}
-
-.circle:hover,
-.circle.selected {
-  border-color: #0ece6b;
-}
-
-.bgImage {
-  width: 100%;
-  height: 100vh;
-}
-
-.background {
-  width: 100%;
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
-  background-image: url("src/assets/bg.jpeg");
-  background-size: cover;
-  background-position: center;
 }
 
-.container {
-  padding: 20px;
-  max-width: 960px;
-  margin: auto;
-}
-.toolbar {
+/* Minimalist Frosted Header - Black/Gold/Blue setup */
+.minimal-header {
   position: fixed;
   top: 0;
-  left: 40px;
-  right: 40px;
-  height: 60px;
+  left: 0;
+  width: 100%;
+  padding: 24px 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  background: var(--bg-primary);
+  /* Solid dark instead of pure transparent due to scrolling content */
+}
+
+.minimal-header.scrolled {
+  background: rgba(5, 5, 5, 0.85);
+  /* Deepest black with slight blur */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-light);
+  padding: 16px 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.nav-brand {
   display: flex;
   align-items: center;
-  background-color: #0f0f10;
-  color: white;
+  font-size: 20px;
   font-weight: 600;
+  letter-spacing: -0.5px;
+  text-decoration: none;
+  gap: 12px;
+  color: var(--text-primary);
 }
-h1,
-h2
-{
-font-size: 50px;
-margin: 30px;
-/* font-weight: 400px; */
-}
-h3
-{
-font-size: 20px;
-margin: 30px;
-/* font-weight: 400px; */
-}
-.navfloat{
-  float: right;
-  align-items: end;
-  justify-content: flex-end;
 
+.brand-logo {
+  border-radius: 50%;
+  border: 2px solid var(--accent-gold);
+  /* Branding Gold Border */
+  transition: all 0.3s ease;
+}
+
+.nav-brand:hover .brand-logo {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 15px var(--accent-blue-glow);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  gap: 36px;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  padding-bottom: 6px;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+}
+
+.nav-link.active {
+  color: var(--accent-gold);
+}
+
+/* Adding active gold bottom border highlight */
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-gold);
+  border-radius: 2px;
+  box-shadow: 0 0 8px var(--accent-gold-glow);
+}
+
+.nav-social-item {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-left: 12px;
+}
+
+.social-icon {
+  color: var(--accent-blue);
+  /* Distinctive Blue icons */
+  transition: color 0.2s ease, transform 0.2s;
+  font-size: 20px;
+}
+
+.social-icon:hover {
+  color: var(--accent-gold);
+  transform: translateY(-2px);
+}
+
+/* Minimalist Menu Toggle (Mobile) */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  gap: 6px;
+  padding: 8px;
+  /* Easier touch target */
+  z-index: 1001;
+}
+
+.menu-toggle .bar {
+  width: 24px;
+  height: 2px;
+  background-color: var(--text-primary);
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+/* Toggle Animations */
+.menu-toggle.open .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+  background-color: var(--accent-gold);
+}
+
+.menu-toggle.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+  background-color: var(--accent-gold);
+}
+
+/* Page Content */
+.page-content {
+  flex: 1;
+  padding-top: 100px;
+  min-height: 80vh;
+}
+
+/* Layout Utilities utilized in App */
+.minimal-footer {
+  margin-top: auto;
+  padding: 32px;
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  justify-content: center;
+}
+
+/* Primary Button utility to match new theme */
+.primary-button-hero {
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  background: var(--accent-gold);
+  color: var(--bg-primary);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.primary-button-hero:hover {
+  box-shadow: 0 0 15px var(--accent-gold-glow);
+  transform: translateY(-2px);
+}
+
+.secondary-button-hero {
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 500;
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.secondary-button-hero:hover {
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Overrides (Fixing Mobile Nav) */
+@media (max-width: 900px) {
+  .nav-links {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    /* Fix overflow behavior by using fixed overlay */
+    top: 72px;
+    /* Height of the scrolled header */
+    left: 0;
+    width: 100%;
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--accent-gold);
+    /* Stand out mobile menu border */
+    flex-direction: column;
+    padding: 32px 0;
+    gap: 24px;
+    z-index: 999;
+
+    /* Strong hidden state clip path */
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: clip-path 0.4s ease-in-out;
+  }
+
+  .nav-links.show {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  }
+
+  .nav-link {
+    font-size: 18px;
+    /* Larger targets for touch */
+  }
+
+  .nav-container {
+    padding: 0 24px;
+    height: 72px;
+    /* Fixed height for dependable layout calculation */
+  }
+
+  .minimal-header {
+    padding: 0;
+    /* Override dynamic padding on mobile */
+    height: 72px;
+    display: flex;
+    align-items: center;
+    background: rgba(5, 5, 5, 0.95);
+    /* Solid backing so content doesnt overlap menu toggler */
+  }
+
+  .minimal-hero h1 {
+    font-size: 3.5rem !important;
+    /* Force smaller hero font size */
+  }
+
+  .minimal-hero h2 {
+    font-size: 1.5rem !important;
+  }
+
+  .page-content {
+    padding-top: 100px;
+  }
 }

@@ -1,66 +1,198 @@
-<div *ngIf="!enableTicTocToee" class="container">
-  <div class="card " style="background-color: #333B50;">
-    <div class="body">
-      <h1 class="center" style="color: aliceblue; text-align: center;">
-        Projects
-      </h1>
-     
-      <ul>
-      <li class="list" style="color: aliceblue;"><h1>Games</h1>
-        <ul>
-          <li> <h2 class="" (click)="enableTicTocToe(true)" >Tic Toc Toe</h2></li>
-        </ul>
-      </li>
-       
-      </ul>
-
+<div class="projects-container fade-in">
+  <!-- Project Grid View -->
+  <div *ngIf="!activeProject" class="minimal-card projects-card">
+    <div class="section-header text-center">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-subtitle">Live, interactive applications — play them right here.</p>
     </div>
-  </div>
 
-</div>
-<div *ngIf="enableTicTocToee" class="container text-center card black">
-  <button class="button btn-primary center mt-3" style="width: 120px;" (click)="back(true)">Back</button>
-  <h1 class="mt-3" style="color: aliceblue;">Tic Toc Toe</h1>
-  <div *ngIf="winner; else showPlayer" class="alert alert-info">
-    {{ winner === 'Draw' ? 'It\'s a draw' : winner + ' Wins' }}
-  </div>
-
-  <ng-template #showPlayer>
-    <div class="alert alert-success">Player {{ currentPlayer }}'s turn</div>
-  </ng-template>
-
-  <div class="board-container">
-    <div class="row">
-      <div class="col-4" *ngFor="let cell of board; let i = index">
-        <button class="btn btn-outline-dark btn-lg" style="width: 100%; height: 100px; background-color: white" (click)="handleMove(i)">
-          {{ cell }}
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <button class="btn btn-primary mt-3" (click)="resetGame()">Reset Game</button>
-</div>
-
-
-
-<!-- <div *ngIf="enableTicTocToee" class="container text-center card black">
-  <button class="button btn-primary center " style="width: 100px;" (click)="back(true)">back</button>
-    <h1 class="mt-3">Tic Toc Toe</h1>
-    <div *ngIf="winner; else showPlayer" class="alert alert-info">
-        {{ winner === 'Draw' ? 'It\'s a draw' : winner + ' Wins' }}
-      </div>
-      
-      <ng-template #showPlayer>
-        <div class="alert alert-success">Player {{ currentPlayer }}'s turn</div>
-      </ng-template>
-   <div class="col-4 center">
-    <div class="row center">
-        <div class="col-4" *ngFor="let cell of board; let i = index">
-            <button class="btn btn-outline-dark btn-lg" style="width: 100px; height: 100px;" (click)="handleMove(i)">{{cell}}</button>
-
+    <div class="projects-grid">
+      <!-- Tic Tac Toe Card -->
+      <div class="project-item minimal-card" (click)="openProject('tictactoe')">
+        <div class="project-image tic-tac-toe-bg">
+          <div class="overlay">
+            <span class="play-icon material-icons">play_circle_outline</span>
+          </div>
         </div>
+        <div class="project-info">
+          <h3 class="project-title">Tic Tac Toe</h3>
+          <p class="project-desc">Classic strategy game with modern UI and pure Angular state management.</p>
+        </div>
+      </div>
+
+      <!-- Typing Speed Test Card -->
+      <div class="project-item minimal-card" (click)="openProject('typing')">
+        <div class="project-image typing-bg">
+          <div class="overlay">
+            <span class="play-icon material-icons">play_circle_outline</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">Typing Speed Test</h3>
+          <p class="project-desc">Real-time WPM tracking, accuracy scoring, and live character feedback.</p>
+        </div>
+      </div>
+
+      <!-- Password Generator Card -->
+      <div class="project-item minimal-card" (click)="openProject('password')">
+        <div class="project-image password-bg">
+          <div class="overlay">
+            <span class="play-icon material-icons">play_circle_outline</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">Password Generator</h3>
+          <p class="project-desc">Customizable secure passwords with visual strength meter and one-click copy.</p>
+        </div>
+      </div>
     </div>
-   </div>
-   <button class="btn btn-primary mt-3" (click)="resetGame()">Reset Game</button>
-</div> -->
+  </div>
+
+  <!-- ====== Tic Tac Toe Game View ====== -->
+  <div *ngIf="activeProject === 'tictactoe'" class="minimal-card game-card fade-in">
+    <button class="minimal-button back-btn" (click)="backToGrid()">
+      <span class="material-icons" style="font-size: 18px;">arrow_back</span> Back to Projects
+    </button>
+
+    <div class="game-header text-center">
+      <h2 class="game-title">Tic Tac Toe</h2>
+      <div class="game-status" [ngClass]="{'winner-highlight': winner}">
+        <div *ngIf="winner; else showPlayer" class="status-msg">
+          {{ winner === 'Draw' ? 'It\'s a Draw!' : 'Player ' + winner + ' Wins!' }}
+        </div>
+        <ng-template #showPlayer>
+          <div class="status-msg">Player {{ currentPlayer }}'s Turn</div>
+        </ng-template>
+      </div>
+    </div>
+
+    <div class="board-container">
+      <div class="tictactoe-grid">
+        <div class="cell" *ngFor="let cell of board; let i = index">
+          <button class="game-cell" [ngClass]="{'x-mark': cell === 'X', 'o-mark': cell === 'O'}"
+            (click)="handleMove(i)">
+            {{ cell }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="game-controls text-center">
+      <button class="primary-button reset-btn" (click)="resetGame()">Reset Game</button>
+    </div>
+  </div>
+
+  <!-- ====== Typing Speed Test View ====== -->
+  <div *ngIf="activeProject === 'typing'" class="minimal-card game-card typing-card fade-in">
+    <button class="minimal-button back-btn" (click)="backToGrid()">
+      <span class="material-icons" style="font-size: 18px;">arrow_back</span> Back to Projects
+    </button>
+
+    <div class="game-header text-center">
+      <h2 class="game-title">Typing Speed Test</h2>
+      <p class="section-subtitle" style="margin-top: -8px;">Type the passage below as fast and accurately as you can.
+      </p>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="typing-stats">
+      <div class="stat-item">
+        <span class="stat-value" style="color: var(--accent-gold);">{{ typingWPM }}</span>
+        <span class="stat-label">WPM</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value" style="color: var(--accent-blue);">{{ typingAccuracy }}%</span>
+        <span class="stat-label">Accuracy</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">{{ typingTimer }}s</span>
+        <span class="stat-label">Time</span>
+      </div>
+    </div>
+
+    <!-- Text to Type -->
+    <div class="typing-display">
+      <span *ngFor="let char of typingText.split(''); let i = index" [ngClass]="getCharClass(i)" class="typing-char">{{
+        char }}</span>
+    </div>
+
+    <!-- Input -->
+    <textarea class="typing-input" [disabled]="typingFinished" [value]="typingInput" (input)="onTypingInput($event)"
+      placeholder="Start typing here..." rows="3" spellcheck="false" autocomplete="off"></textarea>
+
+    <!-- Finished State -->
+    <div *ngIf="typingFinished" class="typing-result">
+      <p style="color: var(--accent-gold); font-weight: 600; font-size: 1.2rem; margin-bottom: 8px;">Test Complete!</p>
+      <p style="color: var(--text-secondary);">You typed at <strong style="color: var(--accent-gold);">{{ typingWPM }}
+          WPM</strong> with <strong style="color: var(--accent-blue);">{{ typingAccuracy }}% accuracy</strong>.</p>
+    </div>
+
+    <div class="game-controls text-center" style="margin-top: 24px;">
+      <button class="primary-button" (click)="resetTyping()">Try Again</button>
+    </div>
+  </div>
+
+  <!-- ====== Password Generator View ====== -->
+  <div *ngIf="activeProject === 'password'" class="minimal-card game-card password-card fade-in">
+    <button class="minimal-button back-btn" (click)="backToGrid()">
+      <span class="material-icons" style="font-size: 18px;">arrow_back</span> Back to Projects
+    </button>
+
+    <div class="game-header text-center">
+      <h2 class="game-title">Password Generator</h2>
+      <p class="section-subtitle" style="margin-top: -8px;">Generate ultra-secure passwords instantly.</p>
+    </div>
+
+    <!-- Generated Password Display -->
+    <div class="password-display">
+      <code class="password-text">{{ generatedPassword }}</code>
+      <button class="copy-btn" (click)="copyPassword()" [title]="passwordCopied ? 'Copied!' : 'Copy'">
+        <span class="material-icons" style="font-size: 20px;">{{ passwordCopied ? 'check' : 'content_copy' }}</span>
+      </button>
+    </div>
+
+    <!-- Strength Meter -->
+    <div class="strength-section">
+      <div class="strength-bar-bg">
+        <div class="strength-bar-fill" [style.width.%]="passwordStrengthPercent"
+          [style.background]="getStrengthColor()"></div>
+      </div>
+      <span class="strength-label" [style.color]="getStrengthColor()">{{ passwordStrength }}</span>
+    </div>
+
+    <!-- Controls -->
+    <div class="password-controls">
+      <div class="control-row">
+        <label class="control-label">Length: <strong style="color: var(--accent-gold);">{{ passwordLength
+            }}</strong></label>
+        <input type="range" class="range-slider" min="6" max="32" [(ngModel)]="passwordLength"
+          (input)="generatePassword()">
+      </div>
+
+      <div class="toggle-grid">
+        <label class="toggle-item">
+          <input type="checkbox" [(ngModel)]="passwordIncludeUpper" (change)="generatePassword()">
+          <span>Uppercase (A-Z)</span>
+        </label>
+        <label class="toggle-item">
+          <input type="checkbox" [(ngModel)]="passwordIncludeLower" (change)="generatePassword()">
+          <span>Lowercase (a-z)</span>
+        </label>
+        <label class="toggle-item">
+          <input type="checkbox" [(ngModel)]="passwordIncludeNumbers" (change)="generatePassword()">
+          <span>Numbers (0-9)</span>
+        </label>
+        <label class="toggle-item">
+          <input type="checkbox" [(ngModel)]="passwordIncludeSymbols" (change)="generatePassword()">
+          <span>Symbols (!@#$%)</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="game-controls text-center" style="margin-top: 24px;">
+      <button class="primary-button" (click)="generatePassword()">
+        <span class="material-icons" style="font-size: 18px;">refresh</span> Generate New
+      </button>
+    </div>
+  </div>
+</div>

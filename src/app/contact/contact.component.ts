@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
 import Swal from 'sweetalert2';
 
@@ -9,26 +8,73 @@ import Swal from 'sweetalert2';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
-// public contactForm: FormGroup
 
-ngOnInit(){
+  // Form fields
+  firstName: string = '';
+  lastName: string = '';
+  mobile: string = '';
+  email: string = '';
+  message: string = '';
+  isSending: boolean = false;
 
-}
-submit(){
-  console.log("submit")
-  Swal.fire("SweetAlert2 is working!");
+  // EmailJS Credentials
+  private SERVICE_ID = 'service_7tijajb';
+  private TEMPLATE_ID = 'template_0fjpuu2';
+  private PUBLIC_KEY = 'nQpwa1w7772yS27ox';
 
-  // emailjs.send('your_service_id', 'your_template_id', {
-  //   // from_name: contactForm.value.name,
-  //   // reply_to: contactForm.value.email,
-  //   // message: contactForm.value.message
-  // }, 'your_user_id')
-  // .then((result: EmailJSResponseStatus) => {
-  //   console.log(result.text);
-  //   alert('Email Sent Successfully!');
-  // }, (error) => {
-  //   console.log(error.text);
-  //   alert('Failed to Send Email');
-  // });
-}
+  ngOnInit() { }
+
+  submit() {
+    if (!this.firstName || !this.email || !this.message) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Missing Fields',
+        text: 'Please fill in at least your name, email, and message.',
+        background: '#111111',
+        color: '#FFFFFF',
+        confirmButtonColor: '#FFD700'
+      });
+      return;
+    }
+
+    this.isSending = true;
+
+    const templateParams = {
+      from_name: `${this.firstName} ${this.lastName}`.trim(),
+      reply_to: this.email,
+      mobile: this.mobile,
+      message: this.message
+    };
+
+    emailjs.send(this.SERVICE_ID, this.TEMPLATE_ID, templateParams, this.PUBLIC_KEY)
+      .then((result: EmailJSResponseStatus) => {
+        console.log('Email sent:', result.text);
+        this.isSending = false;
+        Swal.fire({
+          icon: 'success',
+          title: 'Message Sent!',
+          text: 'Thanks for reaching out. I\'ll get back to you soon.',
+          background: '#111111',
+          color: '#FFFFFF',
+          confirmButtonColor: '#FFD700'
+        });
+        // Reset form
+        this.firstName = '';
+        this.lastName = '';
+        this.mobile = '';
+        this.email = '';
+        this.message = '';
+      }, (error) => {
+        console.error('Email error:', error.text);
+        this.isSending = false;
+        Swal.fire({
+          icon: 'error',
+          title: 'Failed to Send',
+          text: 'Something went wrong. Please try again or email me directly.',
+          background: '#111111',
+          color: '#FFFFFF',
+          confirmButtonColor: '#FFD700'
+        });
+      });
+  }
 }

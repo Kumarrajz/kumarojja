@@ -1,0 +1,80 @@
+K U M A R  O J J A  
+Hyderabad TS 500045 | +91 9963273221 | kumarojja11@gmail.com  
+www.linkedin.com/in/kumar -ojja-238202194  
+OBJECTIVE  
+Highly skilled Full Stack Web Developer (MEAN) with over 2.6 plus years of experience at Vsoft 
+Technologies in Hyderabad. Proficient in Angular,  HTML, CSS, JQUERY , Ajax,  Node.js, JavaScript, 
+Express.js,  Koa,  Typescript , MongoDB, Oracle, and Python. Seeking to leverage expertise in 
+developing innovative web applications to contribute effectively to a dynamic team.  
+SKILLS  
+Programming Languages: JavaScript, Typescript , Python.  
+Front end  Technologies: Angular, HTML5, CSS3, Bootstrap, Angular Materials , AJAX and JQUERY . 
+Back -end Technologies: Node.js, Express.js , Koa .js 
+Databases: MongoDB, Oracle, SQL, PostgreSQL.  
+Operating Systems: Windows, Linux RHEL.  
+Other Tools & Technologies: Git, Restful  APIs, Agile Methodologies,  NGINX (Proxy Server), PM2 
+(Process Manager) and AI tools like CHATGPT & BLOCKBOX.ai  
+EXPERIENCE  
+Full Stack Web Developer (MEAN)  
+ VSoft Technologies, Hyderabad  
+ FEB 2022 - Current.  
+• Designed, developed, and maintained responsive web applications using Angular and 
+Node.js.  
+• Implemented Restful  APIs for seamless communication between front -end and back -end. 
+• Utilized MongoDB and Oracle databases for data storage and retrieval.  
+• Collaborated with cross -functional teams to gather requirements and deliver high -quality 
+software solutions and using AI tools like Chat GPT and Block -box.ai for quicker solutions.  
+• Configured NGINX as a proxy server and managed Node.js applications using PM2 ). 
+• Ensured code quality and performance by following best practices and conducting code 
+reviews.  
+• Actively participated in Agile ceremonies such as sprint planning, daily stand -ups, and 
+retrospectives.  
+Test Engineer - Automation  
+ VSoft Technologies, Hyderabad  
+ AUG  2021- FEB 2022 , 
+• Written Hybrid Frame Work by the Py Test package with Python for automating CI/CD . 
+• Configured Oracle Data base synonyms an d sync , migrated on Oracle version 12c and 19c . 
+• Done complete cycle’s on Load Testing for the bulk cheque ’s data load, user -load and data 
+base loading   with J -meter and generated Reports . 
+EDUCATION  
+MASTERS OF COMPUTER APPLICATIONS   MCA  2021  
+Kakatiya University.  CERTIFICATES  
+Angular Certification -   UDEMY – 2022  
+The Complete Web Development Boot camp - UDEMY 2024  
+PYTHON, DATA SCIENCE Certification – EXCELR - 2021  
+PROJECT  
+Application for USA Donations, Investments, and Teller Payment s, Grant Management  Account 
+Management S ystem,  Positive Pay (INDIA & USA)  
+Domain: Banking Payments  
+• Developed a comprehensive web application tailored for the USA market, focusing on 
+managing donations, investments, and teller payments within the banking domain.  
+• Implemented robust features for donation tracking, investment management, grant 
+distribution, teller payments, user authentication, and transaction management.  
+• Utilized Angular framework to create a responsive and intuitive frontend interface that 
+facilitated seamless user interaction and data visualization.  
+• Employed Node.js , Express.js  and Koa.js  for building scalable backend services that handled 
+business logic, data processing, and integration with external APIs.  
+• Integrated MongoDB and Oracle databases to store and manage complex financial data 
+securely, ensuring efficient retrieval and storage operations.  
+• Configured NGINX as a powerful proxy server to manage client requests, improve application 
+performance, and ensure high availability through load balancing.  
+• Managed Node.js application instances effectively using PM2 Process Manager in Linux  
+RHEL , overseeing processes, monitoring performance metrics, and ensuring system stability 
+under varying workloads.  
+• Collaborated closely with stakeholders throughout the project life -cycle, from requirement 
+gathering and system design to development, testing, and deployment.  
+• Played a pivotal role in designing the investments and grants module, enabling users to 
+manage investment portfolios, apply for grants, and track fund allocations effectively.  
+• Implemented advanced account management features to handle user profiles, permissions, 
+and financial transactions securely.  
+This project not only addressed the core functionalities of donations and teller payments but also 
+extended to encompass sophisticated financial management capabilities essential for investment 
+handling and grant distribution within the banking sector.  
+Additional Information:  
+Strong problem -solving and analytical skills.  
+Excellent communication and teamwork abilities.  
+Ability to quickly learn and adapt to new technologies and frameworks.  
+ 
+References:  
+Available upon request . 
+ 

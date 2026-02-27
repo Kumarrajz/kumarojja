@@ -1,78 +1,621 @@
-/* General styles */
-button {
-  font-size: 2rem;
-  display: inline-block;
-}
-
-.card {
-  padding: 20px;
-  background-color: #333B50;
-}
-
-.project {
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  padding: 10px;
-  margin: 10px;
-  text-align: center;
-}
-
-/* Responsive Design for Tic Tac Toe */
-
-.board-container {
+.projects-container {
+  padding: 80px 20px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  min-height: 80vh;
 }
 
-.row {
+.projects-card,
+.game-card {
+  width: 100%;
+  max-width: 1000px;
+  padding: 60px 40px;
+}
+
+.section-header {
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.section-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* Projects Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 32px;
+}
+
+.project-item {
+  cursor: pointer;
+  overflow: hidden;
   display: flex;
+  flex-direction: column;
+}
+
+.project-image {
+  height: 200px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.tic-tac-toe-bg {
+  background: #18181B;
+  /* Flat dark grey tone */
+  display: flex;
+  align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
-.col-4 {
-  padding: 5px;
-  width: 33.33%; /* Each cell should take 1/3 of the available space */
+.tic-tac-toe-bg::before {
+  content: 'X O';
+  font-size: 72px;
+  color: rgba(255, 255, 255, 0.05);
+  font-weight: 900;
+  letter-spacing: 12px;
 }
 
-.btn-outline-dark {
-  font-size: 2rem;  /* Ensure button text size is large enough */
-  height: 100px;  /* Make sure buttons are square */
+.blank-bg {
+  background: var(--bg-primary);
 }
 
-@media (max-width: 768px) {
-  /* On smaller screens, adjust to ensure 3x3 grid layout */
-  .col-4 {
-    width: 33.33%;  /* Ensure 3 cells per row */
-    padding: 5px;
-  }
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 10, 10, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
 
-  .btn-outline-dark {
-    width: 100%;  /* Ensure buttons take up full width */
-    height: 80px;  /* Adjust button height for better fit on small screens */
-  }
+.project-item:hover .overlay {
+  opacity: 1;
+}
 
-  .board-container {
-    margin-top: 10px;  /* Reduce space between title and board */
-  }
+.play-icon {
+  font-size: 3rem;
+  color: var(--accent-gold);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
 
-  h1 {
-    font-size: 1.5rem;  /* Reduce font size of the heading on small screens */
-  }
+.project-item:hover .play-icon {
+  transform: scale(1);
+}
 
-  .button {
-    font-size: 1.5rem;
-    width: 120px;
-  }
+.project-info {
+  padding: 24px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card);
+}
+
+.project-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.project-desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Coming Soon Card Style */
+.coming-soon {
+  cursor: default;
+}
+
+.coming-soon:hover {
+  transform: none;
+  box-shadow: var(--shadow-sm);
+  border-color: var(--border-light);
+}
+
+.coming-soon .project-image::before {
+  content: '{ }';
+  font-size: 72px;
+  color: rgba(255, 255, 255, 0.05);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* Tic Tac Toe Game */
+.game-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+}
+
+.game-header {
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.game-title {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.game-status {
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-light);
+  transition: all 0.3s ease;
+}
+
+.winner-highlight {
+  background: rgba(255, 215, 0, 0.08);
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 12px var(--accent-gold-glow);
+}
+
+.status-msg {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Game Board */
+.board-container {
+  margin-bottom: 40px;
+}
+
+.tictactoe-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  background: var(--border-light);
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.game-cell {
+  width: 90px;
+  height: 90px;
+  background: var(--bg-primary);
+  border: none;
+  border-radius: 4px;
+  font-size: 3rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-family: inherit;
+  color: transparent;
+}
+
+.game-cell:hover:not(:disabled) {
+  background: #18181B;
+  /* slightly lighter dark grey */
+}
+
+.x-mark {
+  color: var(--accent-gold);
+  text-shadow: 0 0 8px var(--accent-gold-glow);
+}
+
+.o-mark {
+  color: var(--accent-blue);
+  text-shadow: 0 0 8px var(--accent-blue-glow);
+}
+
+/* Buttons */
+.minimal-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  align-self: flex-start;
+  margin-bottom: 32px;
+}
+
+.minimal-button:hover {
+  color: var(--text-primary);
+  border-color: var(--border-focus);
+}
+
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--bg-primary);
+  background: var(--accent-gold);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.primary-button:hover {
+  box-shadow: 0 0 15px var(--accent-gold-glow);
+  transform: translateY(-2px);
 }
 
 @media (max-width: 576px) {
-  /* On extra small screens, adjust button sizes */
-  .btn-outline-dark {
-    font-size: 1.5rem;  /* Adjust font size for smaller screens */
-    height: 70px;  /* Adjust button height for even smaller screens */
+
+  .projects-card,
+  .game-card {
+    padding: 30px 20px;
   }
+
+  .game-cell {
+    width: 80px;
+    height: 80px;
+    font-size: 2.5rem;
+  }
+
+  .game-title {
+    font-size: 2rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .typing-stats {
+    gap: 16px !important;
+  }
+
+  .password-display {
+    flex-direction: column;
+    align-items: stretch !important;
+  }
+
+  .password-text {
+    font-size: 0.85rem !important;
+    word-break: break-all;
+  }
+
+  .toggle-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ========== NEW PROJECT CARD BACKGROUNDS ========== */
+
+.typing-bg {
+  background: #111111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.typing-bg::before {
+  content: 'A b C';
+  font-size: 60px;
+  color: rgba(255, 215, 0, 0.06);
+  font-weight: 800;
+  letter-spacing: 8px;
+  font-family: monospace;
+}
+
+.password-bg {
+  background: #111111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-bg::before {
+  content: '●●●●';
+  font-size: 60px;
+  color: rgba(59, 130, 246, 0.08);
+  font-weight: 400;
+  letter-spacing: 12px;
+}
+
+/* ========== TYPING SPEED TEST ========== */
+
+.typing-card {
+  max-width: 700px;
+}
+
+.typing-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 32px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  width: 100%;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.typing-display {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 24px;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  font-family: 'Inter', monospace;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.typing-char {
+  font-size: inherit;
+  letter-spacing: 0.5px;
+}
+
+.char-pending {
+  color: var(--text-muted);
+}
+
+.char-correct {
+  color: var(--accent-gold);
+}
+
+.char-wrong {
+  color: #EF4444;
+  text-decoration: underline;
+  text-decoration-color: #EF4444;
+}
+
+.typing-input {
+  width: 100%;
+  padding: 16px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-family: inherit;
+  resize: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.typing-input:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+}
+
+.typing-input::placeholder {
+  color: var(--text-muted);
+}
+
+.typing-result {
+  text-align: center;
+  margin-top: 24px;
+  padding: 20px;
+  background: rgba(255, 215, 0, 0.04);
+  border: 1px solid var(--accent-gold-glow);
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ========== PASSWORD GENERATOR ========== */
+
+.password-card {
+  max-width: 600px;
+}
+
+.password-display {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 20px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.password-text {
+  flex: 1;
+  font-size: 1.1rem;
+  font-family: 'Courier New', monospace;
+  color: var(--accent-gold);
+  letter-spacing: 1px;
+  word-break: break-all;
+  user-select: all;
+}
+
+.copy-btn {
+  background: transparent;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  transition: all 0.2s;
+}
+
+.copy-btn:hover {
+  color: var(--accent-gold);
+  border-color: var(--accent-gold);
+}
+
+.strength-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.strength-bar-bg {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.strength-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.4s ease, background 0.4s ease;
+}
+
+.strength-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.password-controls {
+  width: 100%;
+}
+
+.control-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.control-label {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.range-slider {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: var(--border-light);
+  border-radius: 2px;
+  outline: none;
+}
+
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  cursor: pointer;
+  border: 2px solid var(--bg-primary);
+  box-shadow: 0 0 8px var(--accent-gold-glow);
+}
+
+.toggle-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.toggle-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.toggle-item:hover {
+  border-color: var(--accent-gold-dim);
+}
+
+.toggle-item input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--border-light);
+  border-radius: 3px;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.toggle-item input[type="checkbox"]:checked {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+}
+
+.toggle-item input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  top: -2px;
+  left: 2px;
+  font-size: 11px;
+  color: var(--bg-primary);
+  font-weight: 700;
 }

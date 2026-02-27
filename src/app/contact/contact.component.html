@@ -1,193 +1,66 @@
-<style>
-  .contact {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #333B50;
-    width: 100%;
-    padding: 20px;
-    flex-wrap: wrap; /* Ensures the content wraps in mobile view */
-  }
+<div class="contact-container fade-in">
+  <div class="minimal-card contact-card">
+    <div class="contact-grid">
+      <!-- Left side: Info -->
+      <div class="contact-info">
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="bio-text">
+          Highly skilled Full Stack & AI Agents Developer with extensive experience spanning Angular, React, Vite,
+          Node.js, and MongoDB. Proven track record leading multi-platform initiatives and orchestrating AI & RAG Agents
+          to optimize process efficiency.
+        </p>
 
-  .card {
-    background-color: #333B50;
-    border: none;
-    padding: 20px;
-    margin: 10px;
-    width: 100%; /* Makes the card take full width on small screens */
-  }
-
-  .ng-star-inserted {
-    background-color: #333B50;
-  }
-
-  .no-border-card .form-group {
-    border: none;
-  }
-
-  mat-form-field {
-    width: 100%;
-    margin-bottom: 15px;
-    border: 0;
-  }
-
-  .cont {
-    margin: 0;
-    border: 0;
-  }
-
-  .btn {
-    background-color: black;
-    margin-left: 21px;
-    width: 100%; /* Ensure button spans full width on mobile */
-  }
-
-  .cont h5 {
-    font-size: 16px;
-    color: aliceblue;
-  }
-
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .card-container {
-      flex-direction: column; /* Stack the cards on mobile */
-      text-align: center;
-    }
-
-    .card {
-      max-width: 100%;
-      margin-bottom: 20px; /* Adds spacing between cards on mobile */
-    }
-
-    .contact h2 {
-      font-size: 24px;
-    }
-
-    .cont h5 {
-      font-size: 14px;
-    }
-
-    mat-form-field {
-      margin-bottom: 10px; /* Space out the fields on mobile */
-    }
-
-    .btn {
-      margin: 0; /* Margin for button on mobile */
-    }
-  }
-
-  /* Ensure the card is centered and has proper spacing on larger screens */
-  @media (min-width: 769px) {
-    .card-container {
-      display: flex;
-      justify-content: space-between;
-      gap: 30px; /* Adds space between the cards */
-      flex-wrap: wrap; /* Ensures responsiveness */
-    }
-
-    .card {
-      max-width: 70%; /* Adjust card width on desktop */
-    }
-
-    .card h2 {
-      font-size: 28px; /* Increase font size on desktop */
-    }
-
-    .mat-form-field {
-      margin-bottom: 20px; /* Ensures enough spacing between fields on desktop */
-    }
-
-    .col-lg-6, .col-md-6, .col-sm-12 {
-      max-width: 48%; /* Each input field takes up 48% on desktop for two columns */
-      margin-right: 20px; /* Adds space between columns */
-    }
-
-    .col-lg-12 {
-      max-width: 100%; /* Full width for single columns */
-    }
-
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-    }
-  }
-
-</style>
-
-<div class="container mt-4">
-  <div class="card-container col-12 contact">
-    <!-- Left section with personal details -->
-    <div class="card col-12 col-md-4 cont ml-2">
-      <h2 style="text-align: center; color: aliceblue">Contact</h2>
-      <h5>
-        Highly skilled Full Stack Web Developer (MEAN) with over 2.6 plus years of experience at Vsoft
-        Technologies in Hyderabad. Proficient in Angular, HTML, CSS, JQUERY, Ajax, Node.js, JavaScript,
-        Express.js, Koa.js, Typescript, MongoDB, Oracle, and Python. Seeking to leverage expertise in
-        developing innovative web applications to contribute effectively to a dynamic team.
-      </h5>
-      <p><a style="color: aliceblue" href="https://kumarrajz.github.io/kumarojja/">https://kumarrajz.github.io/kumarojja/</a></p>
-      <p style="color: aliceblue">Email: kumarojja11@gmail.com</p>
-      <p style="color: aliceblue">Mobile: +91 9963273221</p>
-      <p style="font-weight: 800px; font-size: 16px; color: aliceblue">Please share your contact details</p>
-    </div>
-
-    <!-- Right section with form -->
-    <div class="card col-12 col-md-7 mat">
-      <mat-card class="card no-border-card">
-        <div class="form-group">
-          <div class="col-sm-12 col-lg-12 col-md-12 col-sm-12 ">
-            <form class="mt-4" formControlName="contactForm" (submit)="submit()">
-              <div class="row mt-4">
-                <!-- First Name and Last Name Columns -->
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                  <mat-form-field class="form-group">
-                    <mat-label style="font-family: Montserrat; color: rgb(10, 88, 145);">First Name</mat-label>
-                    <input matInput placeholder=" " required type="text">
-                  </mat-form-field>
-                </div>
-
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                  <mat-form-field class="form-group">
-                    <mat-label style="font-family: Montserrat; color: rgb(10, 88, 145);">Last Name</mat-label>
-                    <input matInput placeholder=" " required type="text">
-                  </mat-form-field>
-                </div>
-
-                <!-- Mobile Number and Email Columns -->
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                  <mat-form-field class="form-group">
-                    <mat-label style="font-family: Montserrat; color: rgb(10, 88, 145);">Mobile</mat-label>
-                    <input matInput placeholder=" " required type="text">
-                  </mat-form-field>
-                </div>
-
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                  <mat-form-field class="form-group">
-                    <mat-label style="font-family: Montserrat; color: rgb(10, 88, 145);">Mail</mat-label>
-                    <input matInput placeholder=" " required type="text">
-                  </mat-form-field>
-                </div>
-
-                <!-- Comment Section -->
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                  <mat-form-field class="form-group">
-                    <mat-label style="font-family: 'Montserrat'; color: rgb(10, 88, 145);">Comment</mat-label>
-                    <input matInput aria-rowspan="4" aria-colspan="4" placeholder=" " style="font-family: 'Montserrat';" required>
-                  </mat-form-field>
-                </div>
-              </div>
-              <button class="btn btn-submit hoverable-css btn btn-raised btn-outline-secondary mb-4" style="margin: 0;" type="submit">
-                Submit
-              </button>
-            </form>
+        <div class="contact-details">
+          <div class="detail-item">
+            <span class="material-icons detail-icon">email</span>
+            <span class="detail-text">kumarojja11@gmail.com</span>
+          </div>
+          <div class="detail-item">
+            <span class="material-icons detail-icon">phone</span>
+            <span class="detail-text">+91 9963273221</span>
+          </div>
+          <div class="detail-item">
+            <span class="material-icons detail-icon">language</span>
+            <a href="https://kumarrajz.github.io/kumarojja/" target="_blank" class="detail-link">kumarrajz.github.io</a>
           </div>
         </div>
-      </mat-card>
+      </div>
+
+      <!-- Right side: Form -->
+      <div class="contact-form-wrapper">
+        <h3 class="form-title">Send a Message</h3>
+        <form class="minimal-form" (ngSubmit)="submit()">
+          <div class="form-row">
+            <div class="input-group">
+              <input type="text" class="minimal-input" placeholder="First Name" [(ngModel)]="firstName" name="firstName"
+                required>
+            </div>
+            <div class="input-group">
+              <input type="text" class="minimal-input" placeholder="Last Name" [(ngModel)]="lastName" name="lastName">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="input-group">
+              <input type="tel" class="minimal-input" placeholder="Mobile" [(ngModel)]="mobile" name="mobile">
+            </div>
+            <div class="input-group">
+              <input type="email" class="minimal-input" placeholder="Email Address" [(ngModel)]="email" name="email"
+                required>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <textarea class="minimal-input" rows="4" placeholder="Your Message" [(ngModel)]="message" name="message"
+              required></textarea>
+          </div>
+
+          <button type="submit" class="primary-button submit-btn" [disabled]="isSending">
+            <span>{{ isSending ? 'Sending...' : 'Send Message' }}</span>
+            <span class="material-icons" style="font-size: 18px;">{{ isSending ? 'hourglass_empty' : 'send' }}</span>
+          </button>
+        </form>
+      </div>
     </div>
   </div>
 </div>
